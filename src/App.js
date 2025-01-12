@@ -1,26 +1,36 @@
-import whiteBotLogo from "./assets/whiteBotLogo.png";
+import React, { useEffect } from "react";
+import Chat from "./components/Chat";
+import Menu from "./components/Menu";
 
 function App() {
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const menu = document.querySelector('.menuContainer');
+      if (window.matchMedia("(max-width: 900px)").matches) {
+        if (menu.classList.contains('active')) {
+          menu.classList.toggle('active');
+        }
+      } else {
+        if (!menu.classList.contains('active')) {
+          menu.classList.add('active');
+        }
+      }
+    };
+
+    checkScreenSize();
+
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
   return (
     <div className="App">
       <div className="container">
-        <div className="chatContainer">
-          <div className="chatHeader">
-            <div className="chatHeaderTitle">
-              <img src={whiteBotLogo} alt="" />
-              <h1>Chat Bot</h1>
-            </div>
-            <div className="chatHeaderActions">
-              
-            </div>
-          </div>
-          <div className="chatBody">
-            
-          </div>
-          <div className="chatFooter">
-
-          </div>
-        </div>
+        <Menu />
+        <Chat />
       </div>
     </div>
   );
