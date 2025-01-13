@@ -1,5 +1,5 @@
-import whiteBotLogo from "../assets/whiteBotLogo.png";
 import { HiMenuAlt3, HiPaperAirplane } from "react-icons/hi";
+import BotIcon from "./BotIcon";
 
 function Chat() {
     const sideToggle = () => {
@@ -15,7 +15,7 @@ function Chat() {
         <div className="chatContainer">
           <div className="chatHeader">
             <div className="chatHeaderTitle">
-              <img src={whiteBotLogo} alt="" />
+              <BotIcon />
               <h1>ChatBot</h1>
             </div>
             <div className="chatHeaderActions">
@@ -25,7 +25,13 @@ function Chat() {
             </div>
           </div>
           <div className="chatBody">
-              
+            <div className="chatBodyMessage bot">
+              <BotIcon />
+              <p>Hi! I'm ChatBot. How can I help you today?</p>
+            </div>
+            <div className="chatBodyMessage user">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero at aperiam est suscipit perferendis neque atque consequatur obcaecati consectetur, culpa ducimus aliquid, non vel beatae autem assumenda maiores odio dicta?</p>
+            </div>
           </div>
           <div className="chatFooter">
             <input type="text" placeholder="Ask ChatBot..." />

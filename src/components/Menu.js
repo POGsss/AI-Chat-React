@@ -4,7 +4,7 @@ import aboutWhiteLogo from "../assets/aboutWhiteLogo.png";
 import creditWhiteLogo from "../assets/creditWhiteLogo.png";
 
 function Menu() {
-    return ( 
+    return (
         <div className="menuContainer active">
           <div className="menuHeader">
             <div className="menuHeaderTitle">

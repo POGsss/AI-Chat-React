@@ -195,6 +195,50 @@ body {
     cursor: pointer;
 }
 
+.chatBody {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 175px);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.chatBodyMessage {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.chatBodyMessage.bot {
+    justify-content: flex-start;
+}
+
+.chatBodyMessage.user {
+    justify-content: flex-end;
+}
+
+.chatBodyMessage img {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.chatBodyMessage p {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--primary-color);
+    color: var(--text-color);
+    max-width: 75%;
+    font-size: 14px;
+}
+
 .chatFooter {
     position: absolute;
     bottom: 0;
