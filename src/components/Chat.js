@@ -1,7 +1,9 @@
-import { HiMenuAlt3, HiPaperAirplane } from "react-icons/hi";
+import { HiMenuAlt3 } from "react-icons/hi";
 import BotIcon from "./BotIcon";
+import ChatForm from "./ChatForm";
+import ChatMessage from "./ChatMessage";
 
-function Chat() {
+function Chat({ chatBodyRef, chatHistory, setChatHistory, generateBotResponse }) {
     const sideToggle = () => {
         const menu = document.querySelector('.menuContainer');
         const icons = document.querySelectorAll('.menuBodyItemsIcons');
@@ -24,20 +26,17 @@ function Chat() {
               </button>
             </div>
           </div>
-          <div className="chatBody">
+          <div ref={chatBodyRef} className="chatBody">
             <div className="chatBodyMessage bot">
               <BotIcon />
               <p>Hi! I'm ChatBot. How can I help you today?</p>
             </div>
-            <div className="chatBodyMessage user">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero at aperiam est suscipit perferendis neque atque consequatur obcaecati consectetur, culpa ducimus aliquid, non vel beatae autem assumenda maiores odio dicta?</p>
-            </div>
+            {chatHistory.map((chat, index) => (
+              <ChatMessage key={index} chat={chat} />
+            ))}
           </div>
           <div className="chatFooter">
-            <input type="text" placeholder="Ask ChatBot..." />
-            <button id="sendBtn" className="sendButton">
-              <HiPaperAirplane />
-            </button>
+            <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse} />
           </div>
         </div>
     );
