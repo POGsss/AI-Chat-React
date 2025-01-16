@@ -7,14 +7,15 @@
 }
 
 :root {
-    --primary-color: #303030;
-    --secondary-color: #202020;
-    --tertiary-color: #101010;
+    --radial-background: radial-gradient(closest-side, rgba(44,65,255,1), rgba(0,4,18,1));
+    --primary-color: linear-gradient(145deg, rgba(44,65,255,1) 0%, rgba(0,163,255,1) 100%);
+    --secondary-color: #000412;
+    --tertiary-color: #070e26;
     --text-color: #ffffff;
 }
 
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 17px;
 }
   
 ::-webkit-scrollbar-track {
@@ -29,8 +30,37 @@
 
 body {
     font-family: 'Cabin', sans-serif;
-    background: var(--tertiary-color);
+    background: var(--secondary-color);
     color: #fafafa;
+}
+
+.blobContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    top: -250px;
+    left: -250px;
+    aspect-ratio: 1 / 1;
+    width: 500px;
+    background-image: var(--radial-background);
+    filter: blur(100px);
+}
+
+.blob1 {
+    position: absolute;
+    bottom: -500px;
+    right: -500px;
+    aspect-ratio: 1 / 1;
+    width: 1000px;
+    background-image: var(--radial-background);
+    filter: blur(100px);
 }
 
 .container {
@@ -49,7 +79,7 @@ body {
 
 .menuContainer {
     position: relative;
-    width: 70px;
+    width: 74px;
     height: 100%;
     left: 0px;
     display: flex;
@@ -57,8 +87,9 @@ body {
     justify-content: space-between;
     align-items: left;
     flex-shrink: 0;
-    background: var(--primary-color);
-    border-radius: 30px;
+    background: var(--secondary-color);
+    border: 2px solid var(--tertiary-color);
+    border-radius: 20px;
     padding: 10px;
     overflow: hidden;
     transition: 0.25s;
@@ -80,8 +111,12 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: var(--secondary-color);
-    border-radius: 30px;
+    background: var(--tertiary-color);
+    border-radius: 15px;
+}
+
+.menuHeader:hover {
+    background: var(--primary-color);
 }
 
 .menuHeaderTitle {
@@ -96,7 +131,6 @@ body {
 .menuHeaderTitle img {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
 }
 
 .menuHeaderTitle h1 {
@@ -124,15 +158,15 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background: var(--primary-color);
-    border-radius: 30px;
+    background: var(--tertiary-color);
+    border-radius: 15px;
     cursor: pointer;
     overflow: hidden;
     transition: 0.25s;
 }
 
 .menuBodyItems:hover {
-    background: var(--secondary-color);
+    background: var(--primary-color);
 }
 
 .menuBodyItems img {
@@ -155,7 +189,8 @@ body {
     width: 100%;
     height: 100%;
     background: var(--secondary-color);
-    border-radius: 30px;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -183,7 +218,6 @@ body {
 .chatHeaderTitle img {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
 }
 
 .chatHeaderTitle h1 {
@@ -240,14 +274,14 @@ body {
     width: 40px;
     height: 40px;
     background: var(--primary-color);
-    border-radius: 30px;
+    border-radius: 15px;
     padding: 10px;
 }
 
 .chatBodyMessage p {
     padding: 20px;
-    border-radius: 30px;
-    background: var(--primary-color);
+    border-radius: 15px;
+    background: var(--tertiary-color);
     color: var(--text-color);
     max-width: 75%;
     font-size: 14px;
@@ -261,6 +295,10 @@ body {
     overflow-x: scroll;
 }
 
+.chatBodyMessage.user p {
+    background: var(--primary-color);
+}
+
 .chatFooter {
     position: absolute;
     bottom: 0;
@@ -272,7 +310,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
+    border-top: 2px solid var(--tertiary-color);
 }
 
 .chatFooter form {
@@ -285,11 +324,11 @@ body {
 .chatFooter form input {
     width: 100%;
     height: 60px;
-    padding: 20px;
+    padding: 20px 60px 20px 20px;
     border: none;
     outline: none;
-    border-radius: 30px;
-    background: var(--secondary-color);
+    border-radius: 15px;
+    background: var(--tertiary-color);
     color: var(--text-color);
     font-size: 14px;
 }
@@ -302,7 +341,7 @@ body {
     width: 40px;
     height: 40px;
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
     background: var(--primary-color);
     color: var(--text-color);
     font-size: 20px;
@@ -328,6 +367,7 @@ body {
     }
 
     .chatContainer {
+        border: none;
         border-radius: 0px;
     }
 }

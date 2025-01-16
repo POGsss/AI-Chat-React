@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import Chat from "./components/Chat";
 import Menu from "./components/Menu";
+import BlurBlob from "./components/BlurBLob";
 import { botPersonality } from "./botPersonality";
+import { useEffect, useRef, useState } from "react";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 function App() {
@@ -70,6 +72,7 @@ function App() {
 
   return (
     <div className="App">
+      <BlurBlob />
       <div className="container">
         <Menu />
         <Chat
