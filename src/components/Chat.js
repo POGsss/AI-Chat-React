@@ -1,4 +1,4 @@
-import { HiMenuAlt3 } from "react-icons/hi";
+import { HiViewGrid  } from "react-icons/hi";
 import BotIcon from "./BotIcon";
 import ChatForm from "./ChatForm";
 import ChatMessage from "./ChatMessage";
@@ -22,7 +22,7 @@ function Chat({ chatBodyRef, chatHistory, setChatHistory, generateBotResponse })
             </div>
             <div className="chatHeaderActions">
               <button onClick={sideToggle} id="actionBtn" className="actionButton">
-                <HiMenuAlt3 />
+                <HiViewGrid  />
               </button>
             </div>
           </div>
