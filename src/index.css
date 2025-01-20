@@ -136,6 +136,7 @@ body {
     padding: 5px;
     background: var(--primary-color);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .backdropModal h1 {
