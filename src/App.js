@@ -25,8 +25,8 @@ function App() {
       setChatHistory((prev) => [...prev.filter((msg) => msg.text !== "Thinking..."), { role: "bot", text, isError }]);
     };
 
-    const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY.replace(/^"|"$/g, ""));
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     try {
       const prompt = history.map(({ role, text }) => `${role}: ${text}`).join("\n");
